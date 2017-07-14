@@ -1,5 +1,7 @@
 ## Some Notes
 
+[TOC]
+
 ### Generic functions
 
 #### [accumlate](https://msdn.microsoft.com/zh-cn/library/aawk6wsh(v=vs.71).aspx "accumlate")
@@ -31,3 +33,5 @@ int main()
 ```
 **Result**
 > abcabcabcabcabc
+
+#### [back_inserter](http://www.cplusplus.com/reference/iterator/back_inserter/)
