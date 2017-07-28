@@ -12,7 +12,7 @@ using sliping window method;
 
 #### Problem: Find Median of Two Sorted Arary
 
-done
+accomplish
 
 ```c++
 using Nums = vector<int>;
