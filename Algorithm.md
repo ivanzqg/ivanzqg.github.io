@@ -15,110 +15,68 @@ using sliping window method;
 accomplish
 
 ```c++
-using Nums = vector<int>;
-class Solution {
-public:    
-    double getMidNum(vector<int> &nums, int n = 0)
+//manacher algorithm
+#define MAX(X, Y) ((X) > (Y) ? (X) : (Y))
+#define MIN(X, Y) ((X) < (Y) ? (X) : (Y))
+#define PLACEHOLDER '#'
+
+string longgestPalindrome(string s)
+{
+    string tmp;
+    for (auto it = s.begin(); it != s.end(); it++)
     {
-        if(n == 0)
+        tmp += PLACEHOLDER;
+        tmp += *it;
+    }
+    tmp += PLACEHOLDER;
+    swap(tmp, s);
+
+    int midPos = 0;
+    int maxRight = 0;
+
+    int maxMid = 0;
+    int maxRL = 0;
+
+    vector<int> RL(s.length(), 0);
+
+    for (int i = 0; i < s.length(); i++)
+    {
+        if(i < maxRight)
         {
-            return (nums.at((nums.size() - 1) / 2) + nums.at(nums.size() / 2)) * 0.5;
+            RL[i] = MIN(RL[midPos * 2 - i], maxRight - i);
         }
         else
         {
-            size_t size = nums.size();
-            if(size % 2 == 0)   //even size
-            {
-                if(n <= nums[size / 2 - 1])
-                {
-                    return nums[size / 2 - 1];
-                }
-                else if(n >= nums[size / 2])
-                {
-                    return nums[size / 2];
-                }
-                else
-                {
-                    return n;
-                }
-            }
-            else    //odd size
-            {
-                if(n <= nums[size / 2 - 1])
-                {
-                    return (nums[size / 2 - 1] + nums[size / 2]) * 0.5;
-                }
-                else if(n >= nums[size / 2 + 1])
-                {
-                    return (nums[size / 2] + nums[size / 2 + 1]) * 0.5;
-                }
-                else
-                {
-                    return (nums[size / 2] + n) * 0.5;
-                }
-            }
+            RL[i] = 1;
+        }
+
+        //expand
+        while(i - RL[i] >= 0 && i + RL[i] < s.length() && s[i - RL[i]] == s[i + RL[i]])
+        {
+            RL[i]++;
+        }
+        if(i + RL[i] > maxRight)
+        {
+            maxRight = i + RL[i];
+            midPos = i;
+        }
+        if(RL[i] > maxRL)
+        {
+            maxRL = RL[i];
+            maxMid = i;
         }
     }
-    
-    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        if(nums1.size() == 0 || nums2.size() == 0)
-        {
-            return getMidNum(nums1.size() > nums2.size()? nums1 : nums2);
-        }
 
-        size_t size1 = nums1.size();
-        size_t size2 = nums2.size();
-
-        if(size1 == 1 && size2 == 1)
+    tmp = s.substr(maxMid - maxRL + 1, maxRL * 2 - 1);
+    s.clear();
+    for (int i = 0; i < tmp.length(); i++)
+    {
+        if(tmp[i] != PLACEHOLDER)
         {
-            return (nums1[0] + nums2[0]) * 0.5;
+            s += tmp[i];
         }
-        else if(size1 == 1)
-        {
-            return getMidNum(nums2, nums1[0]);
-        }
-        else if(size2 == 1)
-        {
-            return getMidNum(nums1, nums2[0]);
-        }
-        //else
-
-        //recursion
-        double mid1 = getMidNum(nums1);
-        double mid2 = getMidNum(nums2);
-
-        if(mid1 == mid2)
-        {
-            return mid1;
-        }
-        //else
-        
-        if(size1 % 2 == 0 && size2 % 2 == 0)
-        {
-            if(nums1[size1 / 2 - 1] <= nums2[size2 / 2 - 1] && nums1[size1 / 2] >= nums2[size2 / 2])
-            {
-                return (nums2[size2 / 2 - 1] + nums2[size2 / 2]) * 0.5;
-            }
-            else if(nums1[size1 / 2 - 1] > nums2[size2 / 2 - 1] && nums1[size1 / 2] < nums2[size2 / 2])
-            {
-                return (nums1[size1 / 2 - 1] + nums1[size1 / 2]) * 0.5;
-            }
-        }
-
-        size_t len = (size1 < size2 ? size1 : size2) / 2;   //len to cut
-        if(mid1 < mid2)
-        {
-            Nums sub1(nums1.begin() + len, nums1.end());
-            Nums sub2(nums2.begin(), nums2.end() - len);
-            return findMedianSortedArrays(sub1, sub2);
-        }
-        else if(mid1 > mid2)
-        {
-            Nums sub1(nums1.begin(), nums1.end() - len);
-            Nums sub2(nums2.begin() + len, nums2.end());
-            return findMedianSortedArrays(sub1, sub2);
-        }
-
     }
-};
+
+    return s;
+}
 ```
