@@ -12,7 +12,7 @@ using sliping window method;
 
 #### Problem: Find Median of Two Sorted Arary
 
-accomplish
+Manacher Algorithm
 
 ```c++
 //manacher algorithm
