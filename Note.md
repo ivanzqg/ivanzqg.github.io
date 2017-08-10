@@ -39,4 +39,4 @@ int main()
 #### Graphic
  top sort
  
-#### Stack Sort
+#### Heap Sort
