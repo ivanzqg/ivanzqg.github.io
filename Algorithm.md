@@ -84,3 +84,8 @@ string longgestPalindrome(string s)
 ### Dynamic Programming
 
 DFS BFS DP
+
+Dijkstra
+Krustral
+PRIM
+Greedy
