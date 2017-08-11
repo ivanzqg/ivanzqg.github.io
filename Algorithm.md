@@ -88,4 +88,4 @@ DFS BFS DP
 Dijkstra
 Krustral
 PRIM
-Greedy
+Greedy Algorithm
