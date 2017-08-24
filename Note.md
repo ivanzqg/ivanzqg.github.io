@@ -42,5 +42,4 @@ int main()
 #### Heap Sort
 
 
-Tencent, I'm coming!!!
-prepare
+Tencent, Give me some hope...plz
