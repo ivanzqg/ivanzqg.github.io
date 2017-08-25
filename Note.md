@@ -43,3 +43,4 @@ int main()
 
 Voice:
 one more day
+I hate waiting
