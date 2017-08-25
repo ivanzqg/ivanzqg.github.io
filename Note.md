@@ -42,5 +42,4 @@ int main()
 #### Heap Sort
 
 Voice:
-hi Tencent,say yes to me..
-Give me some hope..
+one more day
