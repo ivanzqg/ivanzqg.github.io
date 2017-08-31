@@ -42,6 +42,4 @@ int main()
 #### Heap Sort
 
 Voice:
-one more day
-I hate waiting
-its been a week
+when will u come?
