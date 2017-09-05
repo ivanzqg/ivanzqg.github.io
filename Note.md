@@ -42,4 +42,4 @@ int main()
 #### Heap Sort
 
 Voice:
-No Response T T
+What can I do but wait...
