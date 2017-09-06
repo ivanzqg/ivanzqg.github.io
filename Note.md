@@ -42,4 +42,4 @@ int main()
 #### Heap Sort
 
 Voice:
-What can I do but wait...
+day and day passed 
