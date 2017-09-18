@@ -42,4 +42,4 @@ int main()
 #### Heap Sort
 
 Voice:
-Day and day passed
+Fire is dying out.
