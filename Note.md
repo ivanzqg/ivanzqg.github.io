@@ -43,3 +43,4 @@ int main()
 
 Voice:
 Fire is dying out.
+no message
