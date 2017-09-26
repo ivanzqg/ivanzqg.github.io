@@ -42,5 +42,4 @@ int main()
 #### Heap Sort
 
 Voice:
-Fire is dying out.
-no message
+its time to make some change
