@@ -43,3 +43,4 @@ int main()
 
 Voice:
 its time to make some change
+its been long gone
