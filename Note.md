@@ -41,6 +41,4 @@ int main()
  
 #### Heap Sort
 
-Voice:
-its time to make some change
-its been long gone
+OKay, I give up
